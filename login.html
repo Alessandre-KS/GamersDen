@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gamers Den</title>
+    
+    <!-- External CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Pixel-style Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap" rel="stylesheet">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Login/Signup Container - Centered -->
+    <div class="auth-container active">
+        <div class="auth-box">
+            <!-- Website Logo -->
+            <div class="auth-header">
+                <h1>GAMERS DEN</h1>
+                <p>Enter the gaming universe</p>
+            </div>
+
+            <!-- Toggle between Login and Signup -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">LOGIN</button>
+                <button class="auth-tab" data-tab="signup">SIGN UP</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <input type="text" id="loginEmail" required class="pixel-input">
+                    <label for="loginEmail">Email</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" required class="pixel-input">
+                    <label for="loginPassword">Password</label>
+                </div>
+                <div style="display: flex; justify-content: flex-end; margin-top: -10px; margin-bottom: 16px;">
+                    <span class="switch-link" id="forgotPassword" style="font-size: 0.75rem;">Forgot Password?</span>
+                </div>
+                <button type="button" class="pixel-button auth-btn" id="loginButton">START GAME</button>
+                <p class="auth-switch">Don't have an account? <span class="switch-link" data-tab="signup">Create one</span></p>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <input type="text" id="signupName" required class="pixel-input">
+                    <label for="signupName">Full Name</label>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="signupAge" required min="13" max="100" class="pixel-input">
+                    <label for="signupAge">Age</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="signupSection" required class="pixel-input">
+                    <label for="signupSection">Section</label>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="signupEmail" required class="pixel-input">
+                    <label for="signupEmail">Gmail Address</label>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="signupUsername" required class="pixel-input">
+                    <label for="signupUsername">Username</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="signupPassword" required minlength="6" class="pixel-input">
+                    <label for="signupPassword">Password</label>
+                </div>
+                <button type="button" class="pixel-button auth-btn" id="createAccount">CREATE ACCOUNT</button>
+                <p class="auth-switch">Already have an account? <span class="switch-link" data-tab="login">Login</span></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./JS/main.js"></script>
+    <script type="module" src="./JS/firebase-auth.js"></script>
+    <script type="module" src="./JS/auth-combined.js"></script>
+    <script src="./JS/websocket-client.js"></script>
+</body>
+</html>

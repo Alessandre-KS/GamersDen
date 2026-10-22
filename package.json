@@ -1,0 +1,14 @@
+{
+  "name": "gamers-den",
+  "version": "4.0.0",
+  "type": "module",
+  "description": "GamersHub",
+  "main": "JS/server.js",
+  "scripts": {
+    "start": "node JS/server.js",
+    "dev": "node JS/server.js"
+  },
+  "dependencies": {
+    "ws": "^8.14.2"
+  }
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Gamers Den</title>
+    
+    <!-- External CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Pixel-style Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap" rel="stylesheet">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="index.html" id="navbar__logo">GAMERS DEN</a>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="index.html" class="navbar__links">HOME</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about.html" class="navbar__links">ABOUT US</a>
+                </li>
+                <!-- NEW: Leaderboards Link -->
+                <li class="navbar__item">
+                    <a href="./gamePages/inscriptionReloaded/build/web/leaderboards.html" class="navbar__links">LEADERBOARDS</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="profile.html" class="navbar__links">PROFILE</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <div class="profile-page active">
+        <div class="profile-header">
+            <h1>PLAYER PROFILE</h1>
+            <p>Your gaming journey and statistics</p>
+        </div>
+        <div class="profile-content">
+            <!-- User Information Section -->
+            <div class="profile-section">
+                <h2><i class="fas fa-user"></i> USER INFORMATION</h2>
+                <div class="user-info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Full Name</h3>
+                            <p id="profileName">-</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-user-tag"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Username</h3>
+                            <p id="profileUsername">-</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Age</h3>
+                            <p id="profileAge">-</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Section</h3>
+                            <p id="profileSection">-</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p id="profileEmail">-</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-calendar-plus"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Member Since</h3>
+                            <p id="profileJoinDate">-</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gaming Statistics Section -->
+            <div class="profile-section">
+                <h2><i class="fas fa-chart-bar"></i> GAMING STATISTICS</h2>
+                <div class="stats-grid">
+                    <div class="stat-card total-time">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Play Time</h3>
+                            <p id="totalPlayTime">0 hours</p>
+                        </div>
+                    </div>
+                    <div class="stat-card games-played">
+                        <div class="stat-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Most Game Played</h3>
+                            <p id="mostPlayedGame">-</p>
+                            <small id="gameVisitCount">Visits: 0</small>
+                        </div>
+                    </div>
+                    <div class="stat-card sessions">
+                        <div class="stat-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Sessions</h3>
+                            <p id="totalSessions">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Actions Section -->
+            <div class="profile-section">
+                <h2><i class="fas fa-cog"></i> ACCOUNT ACTIONS</h2>
+                <div class="action-buttons">
+                    <button class="pixel-button logout-btn" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> LOGOUT
+                    </button>
+                    <button class="pixel-button delete-btn" id="deleteAccountBtn">
+                        <i class="fas fa-trash"></i> DELETE ACCOUNT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal" style="display: none;">
+        <div class="confirmation-modal">
+            <div class="modal-header">
+                <h2>DELETE ACCOUNT</h2>
+                <button class="modal-close" id="modalCloseBtn">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="warning-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <p>Are you sure you want to delete your account? This action cannot be undone and all your game data will be lost permanently.</p>
+                
+                <!-- ADDED: Password confirmation input -->
+                <div class="password-confirmation" style="margin: 20px 0;">
+                    <label for="deletePassword" style="display: block; margin-bottom: 8px; color: var(--text); font-weight: bold; font-family: 'Silkscreen', cursive;">
+                        <i class="fas fa-lock"></i> Enter your password to confirm:
+                    </label>
+                    <input 
+                        type="password" 
+                        id="deletePassword" 
+                        class="pixel-input" 
+                        style="width: 100%; padding: 12px; font-family: 'Silkscreen', cursive;"
+                        placeholder="Enter your password..."
+                        required
+                    >
+                </div>
+                
+                <div class="modal-buttons">
+                    <button class="pixel-button cancel-btn" id="cancelDeleteBtn">CANCEL</button>
+                    <button class="pixel-button confirm-delete-btn" id="confirmDeleteBtn">DELETE ACCOUNT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./JS/main.js"></script>
+    <script type="module" src="./JS/firebase-auth.js"></script>
+    <script type="module" src="./JS/profile.js"></script>
+    <script src="./JS/websocket-client.js"></script>
+
+</body>
+</html>

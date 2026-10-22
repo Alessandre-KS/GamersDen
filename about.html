@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Gamers Den</title>
+    
+    <!-- External CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Pixel-style Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap" rel="stylesheet">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="index.html" id="navbar__logo">GAMERS DEN</a>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="index.html" class="navbar__links">HOME</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="about.html" class="navbar__links">ABOUT US</a>
+                </li>
+                <!-- NEW: Leaderboards Link -->
+                <li class="navbar__item">
+                    <a href="./gamePages/inscriptionReloaded/build/web/leaderboards.html" class="navbar__links">LEADERBOARDS</a>
+                </li>
+                <li class="navbar__item" id="userProfileNav">
+                    <!-- Will be populated by JavaScript -->
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- About Page Content -->
+    <div class="about-page active">
+        <div class="about-header">
+            <h1>ABOUT GAMERS DEN</h1>
+        </div>
+        <div class="about-content">
+            <!-- Mission Section -->
+            <div class="about-section">
+                <h2>Vision</h2>
+                <p>This website is fully dedicated to integrate Python-like built-in games for section BSIT 2.1 A. Our mission is to provide an engaging platform where students can enjoy classic games while learning programming concepts.</p>
+                <p>Gamers Den serves as a game hub featuring engaging browser games (including Inscription Reloaded and CappuciNyaa~), each designed to provide entertainment and challenge players of all skill levels.</p>
+            </div>
+
+            <!-- Development Team Section -->
+            <div class="about-section">
+                <h2>PIXEL TEAM</h2>
+                <div class="team-members">
+                    <div class="team-member">
+                        <div class="member-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3>Creator & Lead Developer</h3>
+                        <div class="role">Platform Architect & Game Dev</div>
+                        <div class="description">Created the Gamers Den web platform and programmed Inscription Reloaded. Specialized in backend architecture, system integration, and core game mechanics.</div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Frontend Contributor</h3>
+                        <div class="role">UI & Layout Contributor</div>
+                        <div class="description">Contributed to frontend layout structure, design styling, and overall user interface elements.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goals Section -->
+            <div class="about-section">
+                <h2>OUR MISSION</h2>
+                <p>We believe in combining education with entertainment. By creating this Python-inspired game hub, we aim to:</p>
+                <div class="speech-bubble">
+                    <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                        <li>Provide an enjoyable gaming experience for BSIT 2.1 A students</li>
+                        <li>Showcase the potential of web-based game development</li>
+                        <li>Create a platform that demonstrates programming concepts in action</li>
+                        <li>Build a community around classic and engaging browser games</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add the same JavaScript that works in leaderboards.html -->
+    <script>
+        // ===== NAVBAR MANAGEMENT =====
+        function updateNavbar() {
+            const userProfileNav = document.getElementById('userProfileNav');
+            
+            if (userProfileNav) {
+                userProfileNav.innerHTML = `
+                    <a href="profile.html" class="navbar__links user-profile-link">
+                        <i class="fas fa-user"></i> PROFILE
+                    </a>
+                `;
+                console.log("Navbar updated by about.html");
+            }
+        }
+
+        // ===== THEME MANAGEMENT =====
+        function initializeTheme() {
+            const themeToggle = document.querySelector('.theme-toggle');
+            if (!themeToggle) return;
+
+            const themeIcon = themeToggle.querySelector('i');
+            const savedTheme = localStorage.getItem('gamersDen_theme');
+            
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-theme');
+                
+                if (document.body.classList.contains('dark-theme')) {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    localStorage.setItem('gamersDen_theme', 'dark');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    localStorage.setItem('gamersDen_theme', 'light');
+                }
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("🚀 Initializing About Page...");
+            
+            // Initialize navbar
+            updateNavbar();
+            
+            // Initialize theme
+            initializeTheme();
+        });
+    </script>
+
+</body>
+</html>
