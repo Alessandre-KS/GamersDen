@@ -79,6 +79,25 @@ The entire web platform and its flagship game, **Inscription Reloaded**, were cr
    http://localhost:5500
    ```
 
+### ⚙️ Firebase Setup (Optional)
+
+> 💡 **The arcade games and hub work 100% out of the box** without any Firebase configuration. Both *Inscription Reloaded* and *CappuciNyaa~*, as well as the leaderboard system, are fully playable immediately.
+
+To enable optional cloud user authentication and profile sync:
+1. Create a free project at [console.firebase.google.com](https://console.firebase.google.com/).
+2. Enable **Authentication** (Email/Password provider) and **Cloud Firestore**.
+3. In `JS/firebase-auth.js` and `JS/auth-combined.js`, replace the `firebaseConfig` placeholder values with your project credentials:
+   ```javascript
+   const firebaseConfig = {
+       apiKey: "YOUR_API_KEY",
+       authDomain: "your-project-id.firebaseapp.com",
+       projectId: "your-project-id",
+       storageBucket: "your-project-id.firebasestorage.app",
+       messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+       appId: "YOUR_APP_ID"
+   };
+   ```
+
 ---
 
 ## 📁 Project Structure
